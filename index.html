@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예약 날짜 선택</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>예약 날짜 선택</h2>
+    <div id="datepicker"></div>
+
+    <div class="reservation-option">
+        <input type="radio" id="morning" name="time" value="morning">
+        <label for="morning">오전</label>
+        <input type="radio" id="afternoon" name="time" value="afternoon">
+        <label for="afternoon">오후</label>
+    </div>
+
+    <div>
+        <label for="reserverName">예약자 이름:</label>
+        <input type="text" id="reserverName">
+    </div>
+
+    <div id="selectedDate"></div>
+
+    <button id="confirmBtn">예약 확정</button>
+
+    <div class="notice">
+        <h3>공지사항</h3>
+        <ul>
+            <li>1일~8일까지 날짜예약 선택하세요</li>
+            <li>많은 예약이 있을시 조율할수있습니다</li>
+            <li>배송주소 카카오톡 sonamu 연락주시기 바랍니다</li>
+            <li>9일,10일,11일 강남구</li>
+            <li>12일,13일,14일 강서구</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
