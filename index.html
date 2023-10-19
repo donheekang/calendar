@@ -13,23 +13,26 @@
 
 <body>
     <h2>예약 날짜 선택</h2>
-    <div id="datepicker"></div>
 
-    <div class="reservation-option">
-        <input type="radio" id="morning" name="time" value="morning">
-        <label for="morning">오전</label>
-        <input type="radio" id="afternoon" name="time" value="afternoon">
-        <label for="afternoon">오후</label>
-    </div>
+    <form name="reservation" method="POST" data-netlify="true">
+        <div id="datepicker"></div>
 
-    <div>
-        <label for="reserverName">예약자 이름:</label>
-        <input type="text" id="reserverName">
-    </div>
+        <div class="reservation-option">
+            <input type="radio" id="morning" name="time" value="morning">
+            <label for="morning">오전</label>
+            <input type="radio" id="afternoon" name="time" value="afternoon">
+            <label for="afternoon">오후</label>
+        </div>
 
-    <div id="selectedDate"></div>
+        <div>
+            <label for="reserverName">예약자 이름:</label>
+            <input type="text" id="reserverName" name="reserverName">
+        </div>
 
-    <button id="confirmBtn">예약 확정</button>
+        <div id="selectedDate"></div>
+
+        <button type="submit" id="confirmBtn">예약 확정</button>
+    </form>
 
     <div class="notice">
         <h3>공지사항</h3>
