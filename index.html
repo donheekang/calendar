@@ -22,7 +22,7 @@
             <input type="text" id="reserverName" name="reserverName">
         </div>
 
-        <div id="selectedDate"></div>
+        <div id="reservationNotice" style="color:red;"></div> <!-- 예약 알림 메시지 출력 -->
 
         <button type="submit" id="confirmBtn">예약 확정</button>
     </form>
@@ -42,7 +42,12 @@
         $(function() {
             $("#datepicker").datepicker({
                 onSelect: function(dateText) {
-                    $("#reserverName").focus();
+                    var name = $("#reserverName").val();
+                    if (name) {
+                        $("#reservationNotice").text(name + "님, " + dateText + "에 예약이 되었습니다.");
+                    } else {
+                        $("#reserverName").focus();
+                    }
                 }
             });
         });
