@@ -17,13 +17,6 @@
     <form name="reservation" method="POST" data-netlify="true">
         <div id="datepicker"></div>
 
-        <div class="reservation-option">
-            <input type="radio" id="morning" name="time" value="morning">
-            <label for="morning">오전</label>
-            <input type="radio" id="afternoon" name="time" value="afternoon">
-            <label for="afternoon">오후</label>
-        </div>
-
         <div>
             <label for="reserverName">예약자 이름:</label>
             <input type="text" id="reserverName" name="reserverName">
@@ -45,7 +38,15 @@
         </ul>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        $(function() {
+            $("#datepicker").datepicker({
+                onSelect: function(dateText) {
+                    $("#reserverName").focus();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
