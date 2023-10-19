@@ -43,7 +43,7 @@
 
     <script>
         $(function() {
-            $("#datepicker").datepicker($.datepicker.regional["ko"], {
+            $("#datepicker").datepicker({
                 onSelect: function(dateText) {
                     var name = $("#reserverName").val();
                     if (name) {
