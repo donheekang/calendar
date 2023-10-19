@@ -22,7 +22,7 @@
 
         <div>
             <label for="reserverName">예약자 이름:</label>
-            <input type="text" id="reserverName" name="reserverName">
+            <input type="text" id="reserverName" name="reserverName" onkeyup="updateNotice()">
         </div>
 
         <div id="reservationNotice" style="color:red;"></div>
@@ -42,17 +42,20 @@
     </div>
 
     <script>
+        function updateNotice() {
+            var name = $("#reserverName").val();
+            var date = $("#selectedDate").val();
+            if (name && date) {
+                $("#reservationNotice").text(name + "님, " + date + "에 예약하셨습니다.");
+            }
+        }
+
         $(function() {
             $("#datepicker").datepicker({
                 onSelect: function(dateText) {
                     var name = $("#reserverName").val();
-                    if (name) {
-                        $("#reservationNotice").text(name + "님, " + dateText + "에 예약확정 눌러야 예약이됩니다.");
-                        // Set the hidden input's value to the selected date
-                        $("#selectedDate").val(dateText);
-                    } else {
-                        $("#reserverName").focus();
-                    }
+                    $("#selectedDate").val(dateText);
+                    updateNotice();
                 }
             });
         });
