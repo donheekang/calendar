@@ -14,7 +14,7 @@
 <body>
     <h2>예약 날짜 선택</h2>
 
-    <form name="reservation">
+    <form name="reservation" method="POST" data-netlify="true">
         <div id="datepicker"></div>
 
         <!-- Hidden input to store the selected date -->
@@ -27,9 +27,19 @@
 
         <div id="reservationNotice" style="color:red;"></div>
 
-        <button type="button" id="confirmBtn">예약 확정 및 CSV 다운로드</button>
+        <button type="submit" id="confirmBtn">예약 확정</button>
     </form>
-    <!-- ... -->
+
+    <div class="notice">
+        <h3>공지사항</h3>
+        <ul>
+            <li>1일~8일까지 날짜예약 선택하세요</li>
+            <li>많은 예약이 있을시 조율할수있습니다</li>
+            <li>배송주소 카카오톡 sonamu 연락주시기 바랍니다</li>
+            <li>9일,10일,11일 강남구</li>
+            <li>12일,13일,14일 강서구</li>
+        </ul>
+    </div>
 
     <script>
         $(function() {
@@ -38,30 +48,15 @@
                     var name = $("#reserverName").val();
                     if (name) {
                         $("#reservationNotice").text(name + "님, " + dateText + "에 예약확정 눌러야 예약이됩니다.");
+                        // Set the hidden input's value to the selected date
                         $("#selectedDate").val(dateText);
                     } else {
                         $("#reserverName").focus();
                     }
                 }
             });
-
-            $("#confirmBtn").click(function() {
-                var csvContent = '예약자 이름,예약 날짜\n'; // CSV header
-                var name = $("#reserverName").val();
-                var date = $("#selectedDate").val();
-                csvContent += name + ',' + date;
-
-                var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-                var link = document.createElement("a");
-                var url = URL.createObjectURL(blob);
-                link.setAttribute("href", url);
-                link.setAttribute("download", "reservation.csv");
-                link.style.visibility = 'hidden';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
         });
     </script>
 </body>
+
 </html>
