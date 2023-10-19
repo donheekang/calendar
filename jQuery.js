@@ -11,7 +11,7 @@ $('#uploadButton').click(function() {
             // AWS 설정 및 인증
             AWS.config.update({
                 accessKeyId: 'AKIAXFCFXMR26ZW3L2V4',
-                secretAccessKey: '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',
+                secretAccessKey: 'rLWHkQ+K96q/ilGj3qSVKouSTPe0eAvmxJVt5pJ',
                 region: 'ap-northeast-2'
             });
 
