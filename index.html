@@ -56,7 +56,8 @@
                     var name = $("#reserverName").val();
                     $("#selectedDate").val(dateText);
                     updateNotice();
-                }
+                },
+                minDate: 0 // 지난 날짜 선택 방지
             });
         });
     </script>
